@@ -1,4 +1,4 @@
-# LoRA-Enhanced Deep Learning for Halal Logo Classification
+# Halal Logo Classification with Machine Learning and LoRA-Enhanced Deep Models
 
 **Zeedan Mustami Argani**  
 Department of Informatics Engineering (Data Science)  
@@ -42,7 +42,7 @@ This project compares **classical machine learning** and **LoRA-enhanced deep le
 
 ## Dataset
 
-- **Source:** Roboflow YOLO-format dataset (`namaikna-2`)
+- **Source:** Roboflow YOLO-format dataset (`...`)
 - **Total Samples:** 1,139 images
 - **Classes:** 3 (INDOLOGO, INTERLOGO, NOHALAL)
 - **Splits:**
@@ -52,7 +52,7 @@ This project compares **classical machine learning** and **LoRA-enhanced deep le
 
 **Dataset Structure (YOLO format):**
 ```
-namaikna-2/
+machine_learning/
 ├── train/
 │   ├── images/
 │   └── labels/
@@ -73,7 +73,7 @@ namaikna-2/
 ```
 Machine-Learning-Experiment/
 ├── datasets/
-│   └── namaikna-2/
+│   └── machine_learning/
 │       ├── train/
 │       │   ├── images/
 │       │   └── labels/
@@ -179,7 +179,7 @@ Machine-Learning-Experiment/
 
 | Model         | Accuracy | Precision (w) | Recall (w) | F1-Score (w) |
 |---------------|----------|---------------|------------|--------------|
-| **XGBoost**   | **0.820**| **0.848**     | **0.820**  | **0.797**    |
+| **XGBoost**⭐  | **0.820**| **0.848**     | **0.820**  | **0.797**    |
 | SVM           | 0.811    | 0.835         | 0.811      | 0.795        |
 | Random Forest | 0.768    | 0.819         | 0.768      | 0.734        |
 | KNN           | 0.711    | 0.747         | 0.711      | 0.718        |
@@ -194,7 +194,7 @@ Machine-Learning-Experiment/
 
 **Radar Chart (XGBoost):**
 
-![XGBoost Radar](xgboost_radar.png)  
+![XGBoost Radar](model_comparison_overview.png)  
 *(Sesuaikan path/nama file dengan yang kamu punya; atau embed gambar langsung di repo)*
 
 ---
