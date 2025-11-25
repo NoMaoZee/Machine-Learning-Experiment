@@ -194,7 +194,7 @@ Machine-Learning-Experiment/
 
 **Radar Chart (XGBoost):**
 
-![XGBoost Radar](xgboost_radar.png)  
+![XGBoost Radar](model_comparison_overview.png)  
 *(Sesuaikan path/nama file dengan yang kamu punya; atau embed gambar langsung di repo)*
 
 ---
