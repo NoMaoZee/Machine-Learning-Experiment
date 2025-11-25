@@ -52,7 +52,7 @@ This project compares **classical machine learning** and **LoRA-enhanced deep le
 
 **Dataset Structure (YOLO format):**
 ```
-namaikna-2/
+machine_learning/
 ├── train/
 │   ├── images/
 │   └── labels/
@@ -73,7 +73,7 @@ namaikna-2/
 ```
 Machine-Learning-Experiment/
 ├── datasets/
-│   └── namaikna-2/
+│   └── machine_learning/
 │       ├── train/
 │       │   ├── images/
 │       │   └── labels/
