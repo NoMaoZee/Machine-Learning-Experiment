@@ -1,4 +1,4 @@
-# LoRA-Enhanced Deep Learning for Halal Logo Classification
+# Halal Logo Classification with Machine Learning and LoRA-Enhanced Deep Models
 
 **Zeedan Mustami Argani**  
 Department of Informatics Engineering (Data Science)  
@@ -42,7 +42,7 @@ This project compares **classical machine learning** and **LoRA-enhanced deep le
 
 ## Dataset
 
-- **Source:** Roboflow YOLO-format dataset (`namaikna-2`)
+- **Source:** Roboflow YOLO-format dataset (`...`)
 - **Total Samples:** 1,139 images
 - **Classes:** 3 (INDOLOGO, INTERLOGO, NOHALAL)
 - **Splits:**
