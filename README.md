@@ -295,7 +295,7 @@ We present three representative Grad-CAM examples showing **Original**, **Grad-C
 
 #### Example 1: INDOLOGO (Correct Prediction)
 
-![Grad-CAM INDOLOGO](results/5_Deep_Learning/CNN_Klasik_LoRA/xai/gradcam_overlay_INDOLOGO.png)
+![Grad-CAM INDOLOGO](gradcam_INDOLOGO.png)
 
 **Interpretation:**  
 The Grad-CAM heatmap focuses intensely on the **circular halal logo** and **central "HALAL" text** on the product packaging. Background and outer areas show minimal activation.  This confirms that CNN_Klasik_LoRA correctly learns to attend to the official Indonesian halal logo structure (circle border + calligraphy) rather than irrelevant textures or colors.
@@ -304,7 +304,7 @@ The Grad-CAM heatmap focuses intensely on the **circular halal logo** and **cent
 
 #### Example 2: INTERLOGO (Correct Prediction)
 
-![Grad-CAM INTERLOGO](results/5_Deep_Learning/CNN_Klasik_LoRA/xai/gradcam_overlay_INTERLOGO.png)
+![Grad-CAM INTERLOGO](gradcam_INTERLOGO.png)
 
 **Interpretation:**  
 For this international halal logo, Grad-CAM highlights the **halal symbol region** and surrounding certification text.  Activation is slightly more dispersed than INDOLOGO due to greater design variation in international logos, but the model still correctly focuses on the logo area rather than unrelated product graphics, demonstrating generalization across halal logo styles.
@@ -313,16 +313,16 @@ For this international halal logo, Grad-CAM highlights the **halal symbol region
 
 #### Example 3: NOHALAL (Misclassified as INDOLOGO)
 
-![Grad-CAM NOHALAL](results/5_Deep_Learning/CNN_Klasik_LoRA/xai/gradcam_overlay_NOHALAL.png)
+![Grad-CAM NOHALAL](gradcam_NOHALAL.png)
 
 **Interpretation:**  
-In this misclassification case, the packaging contains **circular seals or logo-like shapes** (possibly other certification marks).  Grad-CAM shows strong activation around these circular regions and text elements.  Although the true label is NOHALAL, the visual structure resembles halal logo patterns (circle + internal text).  This explains the model's confusion: it correctly identified logo-like shapes, but could not distinguish that the **content inside the circle** differs from actual halal certification symbols.  This suggests adding **hard negative examples** (non-halal circular logos) to the training set. 
+In this misclassification case, the packaging contains **circular seals or logo-like shapes** (possibly other certification marks).  Grad-CAM shows strong activation around these circular regions and text elements. Although the true label is NOHALAL, the visual structure resembles halal logo patterns (circle + internal text).  This explains the model's confusion: it correctly identified logo-like shapes, but could not distinguish that the **content inside the circle** differs from actual halal certification symbols.  This suggests adding **hard negative examples** (non-halal circular logos) to the training set.
 
 ---
 
 ### Combined Grad-CAM Visualization (All Classes)
 
-![Grad-CAM All Classes](results/5_Deep_Learning/CNN_Klasik_LoRA/xai/gradcam_overlay_all_classes.png)
+![Grad-CAM All Classes](gradcam_overlay_all_classes.png)
 
 *Visual explanation of CNN_Klasik_LoRA using Grad-CAM.  The overlays show that the model consistently focuses on central halal logo regions (circle and text) for INDOLOGO and INTERLOGO, while misclassifications in NOHALAL mainly occur when non-halal symbols share similar circular shapes or typography with halal logos.*
 
@@ -331,7 +331,7 @@ In this misclassification case, the packaging contains **circular seals or logo-
 ### XAI Summary & Insights
 
 1. **Model Attention is Semantically Meaningful:**
-   - On correct predictions, Grad-CAM consistently highlights **actual halal logo regions** (circles, text, symbols) and ignores irrelevant backgrounds. 
+   - On correct predictions, Grad-CAM consistently highlights **actual halal logo regions** (circles, text, symbols) and ignores irrelevant backgrounds.
    - This proves CNN_Klasik_LoRA learns structural patterns of halal logos, not arbitrary pixel correlations.
 
 2. **Errors are Explainable:**
