@@ -19,10 +19,11 @@ University Of Muhammadiyah Malang
    - [Machine Learning Results](#machine-learning-results)
    - [Deep Learning Results](#deep-learning-results)
 6.  [Explainable AI (XAI)](#explainable-ai-xai)
-7. [How to Run](#how-to-run)
+7.  [How to Run](#how-to-run)
 8. [Visualizations](#visualizations)
 9.  [Conclusion](#conclusion)
-10. [References & Resources](#references--resources)
+10. [Academic Poster](#academic-poster)
+11. [References & Resources](#references--resources)
 
 ---
 
@@ -127,6 +128,8 @@ Machine-Learning-Experiment/
 │       ├── all_models_metrics_heatmap.png
 │       └── all_models_summary_table.png
 │
+├── Akademik Poster Halal Logo Detection.png  # Academic poster
+│
 └── notebooks/
     ├── machine_learning_experiments.ipynb   # Classical ML pipeline
     ├── deep_learning_experiments.ipynb      # Keras/TF deep models
@@ -141,10 +144,10 @@ Machine-Learning-Experiment/
 
 **Pipeline:**
 1. **Feature Extraction:**  
-   - Hand-crafted features (e.g., HOG, LBP, GLCM, color histograms, etc.) extracted from images.
+   - Hand-crafted features (e.g., HOG, LBP, GLCM, color histograms, etc.) extracted from images. 
    - Each sample represented as a **8,304-dimensional feature vector**.
 
-2.  **Train-Test Split:**  
+2. **Train-Test Split:**  
    - 911 train, 228 test samples. 
 
 3. **Classifiers Evaluated:**
@@ -292,7 +295,7 @@ We present three representative Grad-CAM examples showing **Original**, **Grad-C
 
 #### Example 1: INDOLOGO (Correct Prediction)
 
-![Grad-CAM INDOLOGO](gradcam_INDOLOGO.png)
+![Grad-CAM INDOLOGO](results/5_Deep_Learning/CNN_Klasik_LoRA/xai/gradcam_overlay_INDOLOGO.png)
 
 **Interpretation:**  
 The Grad-CAM heatmap focuses intensely on the **circular halal logo** and **central "HALAL" text** on the product packaging. Background and outer areas show minimal activation.  This confirms that CNN_Klasik_LoRA correctly learns to attend to the official Indonesian halal logo structure (circle border + calligraphy) rather than irrelevant textures or colors.
@@ -301,7 +304,7 @@ The Grad-CAM heatmap focuses intensely on the **circular halal logo** and **cent
 
 #### Example 2: INTERLOGO (Correct Prediction)
 
-![Grad-CAM INTERLOGO](gradcam_INTERLOGO.png)
+![Grad-CAM INTERLOGO](results/5_Deep_Learning/CNN_Klasik_LoRA/xai/gradcam_overlay_INTERLOGO.png)
 
 **Interpretation:**  
 For this international halal logo, Grad-CAM highlights the **halal symbol region** and surrounding certification text.  Activation is slightly more dispersed than INDOLOGO due to greater design variation in international logos, but the model still correctly focuses on the logo area rather than unrelated product graphics, demonstrating generalization across halal logo styles.
@@ -310,16 +313,16 @@ For this international halal logo, Grad-CAM highlights the **halal symbol region
 
 #### Example 3: NOHALAL (Misclassified as INDOLOGO)
 
-![Grad-CAM NOHALAL](gradcam_NOHALAL.png)
+![Grad-CAM NOHALAL](results/5_Deep_Learning/CNN_Klasik_LoRA/xai/gradcam_overlay_NOHALAL.png)
 
 **Interpretation:**  
-In this misclassification case, the packaging contains **circular seals or logo-like shapes** (possibly other certification marks).  Grad-CAM shows strong activation around these circular regions and text elements. Although the true label is NOHALAL, the visual structure resembles halal logo patterns (circle + internal text).  This explains the model's confusion: it correctly identified logo-like shapes, but could not distinguish that the **content inside the circle** differs from actual halal certification symbols.  This suggests adding **hard negative examples** (non-halal circular logos) to the training set.
+In this misclassification case, the packaging contains **circular seals or logo-like shapes** (possibly other certification marks).  Grad-CAM shows strong activation around these circular regions and text elements.  Although the true label is NOHALAL, the visual structure resembles halal logo patterns (circle + internal text).  This explains the model's confusion: it correctly identified logo-like shapes, but could not distinguish that the **content inside the circle** differs from actual halal certification symbols.  This suggests adding **hard negative examples** (non-halal circular logos) to the training set. 
 
 ---
 
 ### Combined Grad-CAM Visualization (All Classes)
 
-![Grad-CAM All Classes](gradcam_overlay_all_classes.png)
+![Grad-CAM All Classes](results/5_Deep_Learning/CNN_Klasik_LoRA/xai/gradcam_overlay_all_classes.png)
 
 *Visual explanation of CNN_Klasik_LoRA using Grad-CAM.  The overlays show that the model consistently focuses on central halal logo regions (circle and text) for INDOLOGO and INTERLOGO, while misclassifications in NOHALAL mainly occur when non-halal symbols share similar circular shapes or typography with halal logos.*
 
@@ -328,7 +331,7 @@ In this misclassification case, the packaging contains **circular seals or logo-
 ### XAI Summary & Insights
 
 1. **Model Attention is Semantically Meaningful:**
-   - On correct predictions, Grad-CAM consistently highlights **actual halal logo regions** (circles, text, symbols) and ignores irrelevant backgrounds.
+   - On correct predictions, Grad-CAM consistently highlights **actual halal logo regions** (circles, text, symbols) and ignores irrelevant backgrounds. 
    - This proves CNN_Klasik_LoRA learns structural patterns of halal logos, not arbitrary pixel correlations.
 
 2. **Errors are Explainable:**
@@ -365,7 +368,7 @@ cd [REPO_NAME]
 ```
 
 Or download notebooks directly from Google Drive:  
-[🔗 https://drive.google.com/drive/folders/1QRo1R4SCWpQr1RKgl3OdcqcaE1jMq-3J?usp=sharing ](#)
+[🔗 https://drive.google.com/drive/folders/1QRo1R4SCWpQr1RKgl3OdcqcaE1jMq-3J? usp=sharing ](#)
 
 ### 3. Install Dependencies
 
@@ -399,7 +402,7 @@ Open and run notebooks in order:
    - Generates Grad-CAM visualizations for CNN_Klasik_LoRA
    - Saves models & plots to `results/5_Deep_Learning/`
 
-3. **`vit_lora_experiments. ipynb`** (PyTorch)  
+3. **`vit_lora_experiments.ipynb`** (PyTorch)  
    - Trains ViT + LoRA (timm + peft)
    - Saves model checkpoint & metrics to `results/5_Deep_Learning/ViT_LoRA/`
 
@@ -409,7 +412,7 @@ Open and run notebooks in order:
 
 ### 5. View Results
 
-All outputs (models, plots, CSVs, reports, XAI visualizations) are saved in the `results/` directory and automatically synced to Google Drive.
+All outputs (models, plots, CSVs, reports, XAI visualizations) are saved in the `results/` directory and automatically synced to Google Drive. 
 
 ---
 
@@ -464,7 +467,7 @@ All outputs (models, plots, CSVs, reports, XAI visualizations) are saved in the 
   - Fast to train, interpretable, but requires manual feature engineering.
 
 - **Best Deep Learning Model:** **CNN_Klasik_LoRA** (Acc: 78.2%, Prec: 77.7%, Rec: 78.2%, F1: 77.6%)
-  - End-to-end learned representations. 
+  - End-to-end learned representations.
   - LoRA enables efficient fine-tuning with minimal extra parameters.
   - Slightly lower accuracy than XGBoost on this dataset, but more scalable and adaptable to larger/diverse datasets without re-engineering features.
 
@@ -488,21 +491,41 @@ All outputs (models, plots, CSVs, reports, XAI visualizations) are saved in the 
    - Grad-CAM provides transparency and trust, essential for real-world halal certification applications.
 
 6. **Best Overall Approach:**  
-   - For production: **XGBoost** (fastest, highest test accuracy on this dataset).
+   - For production: **XGBoost** (fastest, highest test accuracy on this dataset). 
    - For scalability & future expansion: **CNN_Klasik_LoRA** or **ViT_LoRA** (end-to-end learning, interpretable via XAI, easier to adapt to new data without re-extracting features).
+
+---
+
+## Academic Poster
+
+A comprehensive academic poster summarizing the entire project (dataset, methods, results, XAI analysis, and conclusions) is available:
+
+![Academic Poster](Akademik%20Poster%20Halal%20Logo%20Detection.png)
+
+**File:** `Akademik Poster Halal Logo Detection.png`
+
+The poster includes:
+- Project overview and motivation
+- Dataset statistics and class distribution
+- Machine learning and deep learning architectures
+- Performance comparison tables and visualizations
+- Grad-CAM XAI examples
+- Key findings and conclusions
+
+This poster is suitable for academic conferences, presentations, and thesis defense.
 
 ---
 
 ## References & Resources
 
-- **Dataset:** Roboflow YOLO-format (`...`)
+- **Dataset:** Roboflow YOLO-format (`... `)
 - **Frameworks:**
   - TensorFlow/Keras: [https://www.tensorflow.org/](https://www.tensorflow.org/)
   - PyTorch: [https://pytorch.org/](https://pytorch.org/)
-  - timm (PyTorch Image Models): [https://github.com/huggingface/pytorch-image-models](https://github.com/huggingface/pytorch-image-models)
+  - timm (PyTorch Image Models): [https://github.com/huggingface/pytorch-image-models](https://github. com/huggingface/pytorch-image-models)
   - peft (Parameter-Efficient Fine-Tuning): [https://github.com/huggingface/peft](https://github.com/huggingface/peft)
 - **LoRA Paper:** [LoRA: Low-Rank Adaptation of Large Language Models](https://arxiv.org/abs/2106.09685) (concept applies to vision models too)
-- **Grad-CAM Paper:** [Grad-CAM: Visual Explanations from Deep Networks via Gradient-based Localization](https://arxiv.org/abs/1610. 02391)
+- **Grad-CAM Paper:** [Grad-CAM: Visual Explanations from Deep Networks via Gradient-based Localization](https://arxiv.org/abs/1610.02391)
 - **Google Colab:** [https://colab.research.google. com/](https://colab. research.google.com/)
 
 ---
@@ -523,7 +546,7 @@ This project is for academic purposes.  Dataset and code are available for educa
 ---
 
 **🔗 Google Drive (All Results & Models):**  
-[📂 [https://drive.google.com/drive/folders/1QRo1R4SCWpQr1RKgl3OdcqcaE1jMq-3J?usp=sharing]](#)
+[📂 [https://drive.google.com/drive/folders/1QRo1R4SCWpQr1RKgl3OdcqcaE1jMq-3J? usp=sharing]](#)
 
 ---
 
