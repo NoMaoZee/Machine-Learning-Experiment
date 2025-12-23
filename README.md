@@ -43,8 +43,8 @@ This project compares **classical machine learning** and **LoRA-enhanced deep le
 
 ---
 
-Web Dashboard
-🌐 Live Demo: https://halallogodetection.streamlit.app/
+## Web Dashboard
+🌐 **Live Demo:** https://halallogodetection.streamlit.app/
 An interactive Streamlit web application has been developed to make the halal logo classification accessible to end-users. The dashboard provides:
 
 ---
